@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Padi Care</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="image_for_user_photo">Image for user photo</string>
+    <string name="welcome">Welcome Back,</string>
+    <string name="username">Username</string>
+    <string name="search_button">search button</string>
+    <string name="profile">Profile</string>
+    <string name="title_forum">Forum</string>
+    <string name="email">emailuser@example.com</string>
+    <string name="menu_name">Menu</string>
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="about_us_title">About us</string>
+    <string name="log_out_title">Log out</string>
+    <string name="button_add_post">Button add post</string>
+    <string name="logo_app">Logo app</string>
+    <string name="email_label">Phone Number or Email</string>
+    <string name="password_label">Password</string>
+    <string name="login_title">Login</string>
+</resources>
