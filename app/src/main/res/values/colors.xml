@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark_green">#008060</color>
     <color name="second_green">#67E7AA</color>
+    <color name="thrid_green">#174F3E</color>
     <color name="green">#2C5E46</color>
 
 </resources>

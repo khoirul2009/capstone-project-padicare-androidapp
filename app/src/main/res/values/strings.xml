@@ -19,4 +19,17 @@
     <string name="email_label">Phone Number or Email</string>
     <string name="password_label">Password</string>
     <string name="login_title">Login</string>
+    <string name="result_definisi">Penyakit hawar daun bakteri (HDB) merupakan salah satu penyakit pada tanamam padi. Penyakit ini disebabkan oleh bakteri Xanthomonas oryzae pv. oryzae (Xoo). Patogen ini dapat mengenfeksi tanaman padi pada semua fase pertumbuhan tanaman dari mulai pesemaian sampai menjelang panen.</string>
+    <string name="definisi">Definisi</string>
+    <string name="result_title">Penyakit Hawar Daun Bakteri (HDB)</string>
+    <string name="result_solusi">Donec sodales metus sed tempor lobortis. Praesent ornare orci eu vulputate pretium. Vivamus accumsan nisl urna, quis viverra diam aliquam eu. Sed porta sed dolor id porttitor. Proin tristique, orci a mollis mollis, purus risus egestas leo, a bibendum sem nunc nec sem. Aenean sollicitudin nec dui non hendrerit. Mauris fermentum nulla ex, sit amet pellentesque odio fringilla fermentum. Donec sodales metus sed tempor lobortis. Praesent ornare orci eu vulputate pretium. Vivamus accumsan nisl urna, quis viverra diam aliquam eu. Sed porta sed dolor id porttitor. Proin tristique, orci a mollis mollis, purus risus egestas leo, a bibendum sem nunc nec sem. Aenean sollicitudin nec dui non hendrerit. Mauris fermentum nulla ex, sit amet pellentesque odio fringilla fermentum.</string>
+    <string name="solusi">Solusi</string>
+    <string name="title_result">Result</string>
+    <string name="post_body">Berikut cara mengatasi penyakti hawar daun bakteri Donec sodales metus sed tempor lobortis. Praesent ornare orci eu vulputate pretium. Vivamus accumsan nisl urna, quis viverra diam aliquam eu. Sed porta sed dolor id porttitor. Proin tristique, orci a mollis mollis, purus risus egestas leo, a bibendum sem nunc nec sem. Aenean sollicitudin nec dui non hendrerit. Mauris fermentum nulla ex, sit amet pellentesque odio fringilla fermentum. Donec sodales metus sed tempor lobortis. Praesent ornare orci eu vulputate pretium. Vivamus accumsan nisl urna, quis viverra diam aliquam eu. Sed porta sed dolor id porttitor. Proin tristique, orci a mollis mollis, purus risus egestas leo, a bibendum sem nunc nec sem. Aenean sollicitudin nec dui non hendrerit. Mauris fermentum nulla ex, sit amet pellentesque odio fringilla fermentum.</string>
+    <string name="post_author">Farhan Adi,</string>
+    <string name="post_time">18:30</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="change_image_button">Change Picture</string>
 </resources>
