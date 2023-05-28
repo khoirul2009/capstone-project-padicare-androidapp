@@ -16,7 +16,15 @@
     <string name="log_out_title">Log out</string>
     <string name="button_add_post">Button add post</string>
     <string name="logo_app">Logo app</string>
-    <string name="email_label">Phone Number or Email</string>
+    <string name="email_label">Username or Email</string>
     <string name="password_label">Password</string>
     <string name="login_title">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="fullname_label">Fullname</string>
+    <string name="register_title">Register</string>
+    <string name="phone_label">Phone</string>
+    <string name="logo_image">Gambar Post</string>
+    <string name="desc_field">Description</string>
+    <string name="upload_btn">Post</string>
+    <string name="title_label">Title</string>
 </resources>
