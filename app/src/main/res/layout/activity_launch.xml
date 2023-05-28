@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/thrid_green"
+tools:context=".ui.launchScreen.LaunchActivity">
+
+    <ImageView
+        android:id="@+id/ls_image"
+        android:layout_width="258dp"
+        android:layout_height="150dp"
+        android:src="@drawable/white_app_logo"
+        android:contentDescription="@string/logo_app"
+        android:layout_marginTop="230dp"
+        android:layout_gravity="center_horizontal"/>
+
+</FrameLayout>
+
