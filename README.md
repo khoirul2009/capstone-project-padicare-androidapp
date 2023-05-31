@@ -9,6 +9,8 @@
 
 ## List features still development
 - Scan Image
-- Comments
+- Comments & Delete Comment
 - Edit Profile
 - Edit Photo
+- Like
+- Views
