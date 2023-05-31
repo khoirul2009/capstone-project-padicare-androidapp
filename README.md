@@ -6,4 +6,9 @@
 - List Post
 - Detail Post
 - Add Post
-- 
+
+## List features still development
+- Scan Image
+- Comments
+- Edit Profile
+- Edit Photo
