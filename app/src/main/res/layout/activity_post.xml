@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_arrow_back_24"
@@ -37,7 +38,7 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#12121D"/>
+                />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -50,7 +51,6 @@
             android:paddingBottom="1dp"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/divider"
             app:layout_constraintTop_toBottomOf="@+id/materialCardView"/>
 
@@ -60,7 +60,6 @@
             android:layout_height="wrap_content"
             android:text="@string/post_author"
             android:textSize="12sp"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/post_title"
             app:layout_constraintTop_toBottomOf="@+id/post_title"/>
 
@@ -71,7 +70,6 @@
             android:paddingLeft="5dp"
             android:text="@string/post_time"
             android:textSize="12sp"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@id/post_author"
             app:layout_constraintTop_toBottomOf="@+id/post_title"/>
 
@@ -114,7 +112,6 @@
             android:paddingBottom="50dp"
             android:justificationMode="inter_word"
             android:text="@string/post_body"
-            android:textColor="@color/black"
             android:textSize="15sp"
             android:paddingLeft="32dp"
             android:paddingRight="32dp"

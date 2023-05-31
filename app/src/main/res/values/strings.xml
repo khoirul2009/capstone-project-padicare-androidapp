@@ -56,4 +56,12 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
     <string name="account_y">Don\'t have an account yet?</string>
+    <string name="tit1le_post">Title Post</string>
+    <string name="sample_text">sample text for thumbnail post</string>
+    <string name="sample_date">20 sep 2023</string>
+    <string name="retry">Retry</string>
+    <string name="desc_required">Description is required!</string>
+    <string name="title_required">Title post is required!</string>
+    <string name="img_required">Image post is required</string>
+    <string name="success">Success</string>
 </resources>

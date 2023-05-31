@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.padicare"
-        minSdk 22
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -63,6 +63,17 @@ dependencies {
 
     // datastore
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // paging
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+    implementation 'androidx.room:room-paging:2.6.0-alpha01'
+
+    // room
+    implementation 'androidx.room:room-ktx:2.6.0-alpha01'
+    kapt 'androidx.room:room-compiler:2.6.0-alpha01'
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
 
 
     testImplementation 'junit:junit:4.13.2'

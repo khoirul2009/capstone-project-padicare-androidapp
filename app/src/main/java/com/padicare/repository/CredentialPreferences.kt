@@ -16,15 +16,17 @@ class CredentialPreferences private constructor(private val dataStore: DataStore
             LoginResult(
                 name = preferences[NAME_KEY].toString(),
                 token = preferences[TOKEN_KEY].toString(),
+                userId = preferences[USER_ID_KEY].toString(),
                 isLogin = preferences[STATE_KEY] ?: false
             )
         }
     }
 
-    suspend fun saveCredential(name: String, token: String ) {
+    suspend fun saveCredential(name: String, token: String, userId: String ) {
         dataStore.edit { preferences ->
             preferences[NAME_KEY] = name
             preferences[TOKEN_KEY] = token
+            preferences[USER_ID_KEY] = userId
             preferences[STATE_KEY] = true
         }
     }
@@ -33,6 +35,7 @@ class CredentialPreferences private constructor(private val dataStore: DataStore
         dataStore.edit { preferences ->
             preferences[NAME_KEY] = ""
             preferences[TOKEN_KEY] = ""
+            preferences[USER_ID_KEY] = ""
             preferences[STATE_KEY] = false
         }
     }
@@ -42,6 +45,7 @@ class CredentialPreferences private constructor(private val dataStore: DataStore
         private var INSTANCE: CredentialPreferences? = null
 
         private val NAME_KEY = stringPreferencesKey("name")
+        private val USER_ID_KEY = stringPreferencesKey("userId")
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val STATE_KEY = booleanPreferencesKey("state")
 

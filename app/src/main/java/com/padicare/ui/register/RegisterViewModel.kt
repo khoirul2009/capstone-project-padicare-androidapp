@@ -20,6 +20,8 @@ class RegisterViewModel : ViewModel() {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage : LiveData<String> = _errorMessage
 
+
+
     fun register(fullname: String, email: String, username: String, password: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().register(fullname,username,email,password)

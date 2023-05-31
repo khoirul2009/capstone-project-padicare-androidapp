@@ -31,9 +31,10 @@ class LoginViewModel(private val pref: CredentialPreferences) : ViewModel() {
                 if(response.isSuccessful) {
                     val name = response.body()?.loginResult?.name
                     val token = response.body()?.loginResult?.token
+                    val userId = response.body()?.loginResult?.userId
                     viewModelScope.launch {
-                        if(name !== null && token !== null) {
-                            pref.saveCredential(name, token)
+                        if(name !== null && token !== null && userId !== null) {
+                            pref.saveCredential(name, token, userId)
                         }
                     }
                 } else {

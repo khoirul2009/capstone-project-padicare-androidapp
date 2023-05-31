@@ -52,6 +52,15 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(activity, LoginActivity::class.java))
         }
 
+        viewModel.getUser().observe(viewLifecycleOwner, {
+            viewModel.getUserFromApi(it.userId)
+            viewModel.userData.observe(viewLifecycleOwner, {
+                binding.name.text = it?.name
+                binding.email.text = it?.email
+            })
+        })
+
+
 
     }
 
