@@ -28,10 +28,14 @@ class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
 
+    private lateinit var token: String
+
+    private lateinit var userId: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
@@ -41,6 +45,8 @@ class ProfileFragment : Fragment() {
             ViewModelFactory(requireContext(), pref!!)
         )[ProfileViewModel::class.java]
 
+
+
         return root
     }
 
@@ -48,24 +54,28 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.menuLogOut.setOnClickListener {
-            viewModel.logout()
+            viewModel.logout(token)
             startActivity(Intent(activity, LoginActivity::class.java))
         }
 
+
+        binding.menuEditProfile.setOnClickListener {
+            val intent = Intent(activity, EditProfileActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+        }
+
         viewModel.getUser().observe(viewLifecycleOwner, {
+            this.token = it.token
+            this.userId = it.userId
             viewModel.getUserFromApi(it.userId)
             viewModel.userData.observe(viewLifecycleOwner, {
                 binding.name.text = it?.name
                 binding.email.text = it?.email
             })
+
         })
-
-
-
     }
-
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -8,6 +8,7 @@ import com.padicare.repository.CredentialPreferences
 import com.padicare.ui.addPost.AddPostViewModel
 import com.padicare.ui.forum.ForumViewModel
 import com.padicare.ui.login.LoginViewModel
+import com.padicare.ui.post.PostViewModel
 import com.padicare.ui.profile.ProfileViewModel
 
 class ViewModelFactory(private val context: Context, private val pref: CredentialPreferences) : ViewModelProvider.NewInstanceFactory() {
@@ -26,6 +27,9 @@ class ViewModelFactory(private val context: Context, private val pref: Credentia
             }
             modelClass.isAssignableFrom(AddPostViewModel::class.java) -> {
                 AddPostViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(PostViewModel::class.java) -> {
+                PostViewModel(Injection.provideRepository2(), pref) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

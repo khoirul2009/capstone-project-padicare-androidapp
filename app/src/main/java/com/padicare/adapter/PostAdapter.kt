@@ -20,21 +20,23 @@ import java.time.format.DateTimeFormatter
 class PostAdapter : PagingDataAdapter<PostItem, PostAdapter.ViewHolder>(DIFF_CALLBACK) {
     class ViewHolder(private val binding: PostItemBinding) : RecyclerView.ViewHolder(binding.root)   {
         fun bind(postItem: PostItem) {
-
-
-
-//            Glide.with(binding.root.context)
-//                .load(postItem.user.photoUrl)
-//                .into(binding.userImage)
+            if(postItem.user.photoUrl !== null) {
+                Glide.with(binding.root.context)
+                    .load(postItem.user.photoUrl)
+                    .into(binding.userImage)
+            }
             binding.tvUsername.text = postItem.user.username
             binding.tvDate.text = convertDateTimeToTime(postItem.createdAt).toString()
             Glide.with(binding.root.context)
                 .load(postItem.photoUrl)
                 .into(binding.postImage)
             binding.tvTitle.text = postItem.title
-            binding.tvDesc.text = postItem.description.substring(0,
-                Integer.min(postItem.description.length, 30)
-            )
+            val thumbnail = postItem.description.substring(0, Integer.min(postItem.description.length, 50))
+            if(postItem.description.length >= 50) {
+                binding.tvDesc.text = "$thumbnail . Lihat selengkapnya..."
+            } else {
+                binding.tvDesc.text = "$thumbnail"
+            }
 
             binding.root.setOnClickListener {
                 val intent = Intent(binding.root.context, PostActivity::class.java)

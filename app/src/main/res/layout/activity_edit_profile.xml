@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <com.google.android.material.card.MaterialCardView
@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/baseline_arrow_back_24"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="30dp"/>
+                android:paddingStart="30dp"
+                android:contentDescription="@string/button_back" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -41,7 +42,7 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="124dp"
             android:layout_height="119dp"
@@ -49,7 +50,8 @@
             android:src="@drawable/user"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialCardView"/>
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+            android:contentDescription="@string/photo_profile" />
 
         <Button
             android:id="@+id/change_image"
@@ -79,8 +81,7 @@
             android:id="@+id/profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="@color/black"
+            android:text="@string/name_label"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
@@ -93,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Masukkan Nama"
+            android:hint="@string/name_hint"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -113,8 +114,7 @@
             android:id="@+id/profile_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
-            android:textColor="@color/black"
+            android:text="@string/email_label"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
@@ -127,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Masukkan email"
+            android:hint="@string/email_hint"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -147,8 +147,7 @@
             android:id="@+id/profile_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:textColor="@color/black"
+            android:text="@string/phone_label"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
@@ -161,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Masukkan Nomor Telepon "
+            android:hint="@string/phone_number_hint"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -181,8 +180,7 @@
             android:id="@+id/profile_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
-            android:textColor="@color/black"
+            android:text="@string/password_label"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginTop="15dp"
@@ -195,8 +193,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Masukkan Password"
-            android:paddingBottom="50dp"
+            android:hint="@string/password_hint"
+            android:paddingBottom="30dp"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusTopEnd="10dp"
@@ -207,10 +205,32 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_edit_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:text="Simpan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tf_password" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

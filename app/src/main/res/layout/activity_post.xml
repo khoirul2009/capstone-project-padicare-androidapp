@@ -86,7 +86,7 @@
         <ImageView
             android:id="@+id/post_image"
             android:layout_width="350dp"
-            android:layout_height="169dp"
+            android:layout_height="200dp"
             android:scaleType="center"
             android:layout_marginTop="20dp"
             android:src="@drawable/hawar_daun_bakteri"
@@ -109,15 +109,70 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:paddingBottom="50dp"
             android:justificationMode="inter_word"
-            android:text="@string/post_body"
-            android:textSize="15sp"
             android:paddingLeft="32dp"
             android:paddingRight="32dp"
-            app:layout_constraintTop_toBottomOf="@id/divider2"
+            android:paddingBottom="50dp"
+            android:text="@string/post_body"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider4"
+            android:paddingBottom="4dp"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_body"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/comment_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/type_your_commnet"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tf_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="top"
+                android:inputType="text|textMultiLine"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_send_24"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_body"
+            android:contentDescription="@string/button_comment" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/comment_layout"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/comment_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

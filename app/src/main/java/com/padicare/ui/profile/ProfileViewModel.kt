@@ -2,6 +2,7 @@ package com.padicare.ui.profile
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.padicare.model.DefaultResponse
 import com.padicare.model.GetUserResponse
 import com.padicare.model.LoginResult
 import com.padicare.model.UserData
@@ -22,6 +23,9 @@ class ProfileViewModel(private val pref: CredentialPreferences) : ViewModel() {
 
     private val _userData = MutableLiveData<UserData?>()
     val userData : LiveData<UserData?> = _userData
+
+    private val _successMessage = MutableLiveData<String>()
+    val successMessage : LiveData<String> = _successMessage
     fun getUserFromApi(id: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getUser(id)
@@ -52,7 +56,65 @@ class ProfileViewModel(private val pref: CredentialPreferences) : ViewModel() {
 
         })
     }
-    fun logout() {
+    fun updateUser(id: String, name : String, email: String, phoneNumber: String, password : String?, token : String) {
+        val client = ApiConfig.getApiService().editUser(id, name, email, phoneNumber, password, "Bearer $token")
+        client.enqueue(object : Callback<DefaultResponse> {
+            override fun onResponse(
+                call: Call<DefaultResponse>,
+                response: Response<DefaultResponse>
+            ) {
+                _isLoading.value = false
+                val responseBody = response.body()
+                if(response.isSuccessful) {
+                    _successMessage.value = responseBody?.message
+                } else {
+                    try {
+                        val jsonObject = JSONObject(response.errorBody()?.string())
+                        _errorMessage.value = jsonObject.getString("message")
+                    } catch (e : Exception) {
+                        _errorMessage.value = e.message.toString()
+                        Log.e(TAG, "onFailure: ${e.message.toString()}")
+                    }
+                }
+
+            }
+
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                _isLoading.value = false
+                _errorMessage.value = t.message.toString()
+            }
+
+        })
+    }
+    fun logout(token: String) {
+        _isLoading.value = true
+        val client = ApiConfig.getApiService().logout("Bearer $token")
+        client.enqueue(object: Callback<DefaultResponse> {
+            override fun onResponse(
+                call: Call<DefaultResponse>,
+                response: Response<DefaultResponse>
+            ) {
+                val responseBody = response.body()
+                if(response.isSuccessful) {
+                    _successMessage.value = responseBody?.message
+                } else {
+                    try {
+                        val jsonObject = JSONObject(response.errorBody()?.string())
+                        _errorMessage.value = jsonObject.getString("message")
+                    } catch (e : Exception) {
+                        _errorMessage.value = e.message.toString()
+                        Log.e(TAG, "onFailure: ${e.message.toString()}")
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                _isLoading.value = false
+                _errorMessage.value = t.message.toString()
+            }
+
+        })
+
         viewModelScope.launch {
             pref.clearCredential()
         }

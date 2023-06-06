@@ -8,19 +8,11 @@ data class GetCommentResponse(
 	val error: Boolean,
 
 	@field:SerializedName("listComment")
-	val listComment: List<ListCommentItem>
+	val listComment: List<CommentItem>
 )
 
-data class User(
 
-	@field:SerializedName("photoUrl")
-	val photoUrl: Any,
-
-	@field:SerializedName("username")
-	val username: String
-)
-
-data class ListCommentItem(
+data class CommentItem(
 
 	@field:SerializedName("createdAt")
 	val createdAt: String,

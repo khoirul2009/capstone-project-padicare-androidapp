@@ -64,4 +64,11 @@
     <string name="title_required">Title post is required!</string>
     <string name="img_required">Image post is required</string>
     <string name="success">Success</string>
+    <string name="sample_comment">Sample Comment</string>
+    <string name="type_your_commnet">Type your commnet</string>
+    <string name="button_comment">Button for send commnet</string>
+    <string name="comment_alert">Anda belum memasukan komen!</string>
+    <string name="button_back">Button Back</string>
+    <string name="photo_profile">Photo profile</string>
+    <string name="name_alert">Mohon masukkan nama!</string>
 </resources>
