@@ -9,11 +9,11 @@
 - Comments
 - Edit Profile
 - Scan Image
-- Edit Photo
+- Edit Photo Profile
 
  ## List dependencies
  
-- Cicle Image : https://github.com/hdodenhof/CircleImageView 
+- Circle Image : https://github.com/hdodenhof/CircleImageView 
 - Retrofit : https://square.github.io/retrofit/
 - Datastore : https://developer.android.com/jetpack/androidx/releases/datastore?hl=id
 - Paging 3 : https://developer.android.com/topic/libraries/architecture/paging/v3-migration?hl=id
