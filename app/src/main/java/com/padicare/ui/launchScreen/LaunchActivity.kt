@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.padicare.MainActivity
 import com.padicare.databinding.ActivityLaunchBinding
 import com.padicare.repository.CredentialPreferences
+import com.padicare.repository.ThemePreference
 import com.padicare.ui.ViewModelFactory
 import com.padicare.ui.login.LoginActivity
 import com.padicare.ui.login.LoginViewModel
@@ -27,6 +29,8 @@ class LaunchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLaunchBinding
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var launchViewModel: LaunchViewModel
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "themes")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +58,15 @@ class LaunchActivity : AppCompatActivity() {
 
         })
         }, 2000)
+
+        launchViewModel.getThemeSettings().observe(this, { isDarkModeActive: Boolean ->
+                if(isDarkModeActive) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                }
+            }
+        )
     }
 
     private fun setupViewModel() {
@@ -61,6 +74,11 @@ class LaunchActivity : AppCompatActivity() {
             this,
             ViewModelFactory(this, CredentialPreferences.getInstance(dataStore))
         )[LoginViewModel::class.java]
+
+        launchViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(this, themePref = ThemePreference.getInstance(dataStore))
+        )[LaunchViewModel::class.java]
     }
 }
 

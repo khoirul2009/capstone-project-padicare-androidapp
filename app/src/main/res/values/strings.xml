@@ -65,10 +65,15 @@
     <string name="img_required">Image post is required</string>
     <string name="success">Success</string>
     <string name="sample_comment">Sample Comment</string>
-    <string name="type_your_commnet">Type your commnet</string>
+    <string name="type_your_commnet">Tuliskan komentar anda</string>
     <string name="button_comment">Button for send commnet</string>
     <string name="comment_alert">Anda belum memasukan komen!</string>
     <string name="button_back">Button Back</string>
     <string name="photo_profile">Photo profile</string>
     <string name="name_alert">Mohon masukkan nama!</string>
+    <string name="title_add_post">Create Post</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="email_username">Email or Username</string>
+    <string name="scan_penyakit_padi">Scan Penyakit Padi</string>
+    <string name="search">Search : </string>
 </resources>

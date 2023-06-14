@@ -5,7 +5,7 @@ import androidx.paging.PagingState
 import com.padicare.model.PostItem
 import com.padicare.repository.ApiServices
 
-class PostPagingSource(private val apiServices: ApiServices) : PagingSource<Int, PostItem>() {
+class PostPagingSource(private val apiServices: ApiServices, private val search: String?) : PagingSource<Int, PostItem>() {
     private companion object {
         const val INITIAL_PAGE_INDEX = 1
     }
@@ -20,7 +20,7 @@ class PostPagingSource(private val apiServices: ApiServices) : PagingSource<Int,
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PostItem> {
         try {
             val page = params.key ?: INITIAL_PAGE_INDEX
-            val responseData = apiServices.getPost(page = page, size = 5).listPost
+            val responseData = apiServices.getPost(page = page, size = 5, search = search).listPost
 
             return LoadResult.Page(
                 data = responseData,

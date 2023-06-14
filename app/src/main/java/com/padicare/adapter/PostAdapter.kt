@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.padicare.databinding.PostItemBinding
 import com.padicare.model.PostItem
 import com.padicare.ui.post.PostActivity
+import com.padicare.utils.convertDateTimeToTime
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -44,15 +45,7 @@ class PostAdapter : PagingDataAdapter<PostItem, PostAdapter.ViewHolder>(DIFF_CAL
                 binding.root.context.startActivity(intent)
             }
         }
-        fun convertDateTimeToTime(mysqlDateTime: String): String? {
-            // Define the format of the MySQL datetime value
-            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", )
-            val toFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
 
-            // Parse the MySQL datetime string into a LocalDateTime object
-            return LocalDateTime.parse(mysqlDateTime, formatter).format(toFormatter)
-
-        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

@@ -28,6 +28,7 @@ import com.padicare.model.User
 import com.padicare.repository.CredentialPreferences
 import com.padicare.ui.ViewModelFactory
 import com.padicare.utils.createCustomTempFile
+import com.padicare.utils.rotateFile
 import com.padicare.utils.uriToFile
 import java.io.File
 
@@ -42,7 +43,7 @@ class AddPostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.hide()
         setupViewModel()
 
         if (!allPermissionsGranted()) {
@@ -135,19 +136,6 @@ class AddPostActivity : AppCompatActivity() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    private val launcherIntentGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImg = result.data?.data as Uri
-
-            selectedImg.let { uri ->
-                val myFile = uriToFile(uri, this@AddPostActivity)
-                getFile = myFile
-                binding.imgStory.setImageURI(uri)
-            }
-        }
-    }
 
     private fun uploadPost() {
         val desc = binding.tfDescription.text.toString()
@@ -192,21 +180,37 @@ class AddPostActivity : AppCompatActivity() {
         }
     }
 
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val selectedImg = result.data?.data as Uri
+
+            selectedImg.let { uri ->
+                val myFile = uriToFile(uri, this@AddPostActivity)
+                getFile = myFile
+                binding.imgStory.setImageURI(uri)
+            }
+        }
+    }
+
+
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == RESULT_OK) {
             val myFile = File(currentPhotoPath)
-
             myFile.let { file ->
+                rotateFile(file, true)
                 getFile = file
+                binding.imgStory.setPadding(5, 5, 5, 5)
                 binding.imgStory.setImageBitmap(BitmapFactory.decodeFile(myFile.path))
             }
         }
     }
 
 
-    private fun allPermissionsGranted() = AddPostActivity.REQUIRED_PERMISSIONS.all {
+    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
@@ -217,6 +221,10 @@ class AddPostActivity : AppCompatActivity() {
         } else {
             binding.progressBar.visibility = View.GONE
         }
+    }
+
+    private fun toResultScan() {
+
     }
 
     companion object {

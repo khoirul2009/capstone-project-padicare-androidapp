@@ -3,6 +3,7 @@ package com.padicare.ui.post
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.datastore.core.DataStore
@@ -75,6 +76,15 @@ class PostActivity : AppCompatActivity() {
             }
 
         })
+
+        viewModel.errorMessage.observe(this, {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.isLoading.observe(this, {
+            showLoading(it)
+        })
+
         binding.imageButton3.setOnClickListener {
             val comment = binding.tfComment.text.toString()
             when {
@@ -105,6 +115,14 @@ class PostActivity : AppCompatActivity() {
         viewModel.getComment(postId, token).observe(this, {
             adapter.submitData(lifecycle, it)
         })
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 
     private fun setupData() {

@@ -37,7 +37,8 @@ interface ApiServices {
     @GET("posts")
     suspend fun getPost(
         @Query("page") page : Int,
-        @Query("size") size : Int
+        @Query("size") size : Int,
+        @Query("search") search: String? = ""
     ) : GetPostsResponse
 
     @Multipart
@@ -85,4 +86,26 @@ interface ApiServices {
         @Field("password") password : String? = null,
         @Header("Authorization") authorization: String,
     ) : Call<DefaultResponse>
+
+    @POST("scanImage")
+    @Multipart
+    fun scanImage(
+        @Header("Authorization") authorization: String,
+        @Part file: MultipartBody.Part
+    ) : Call<ScanResponse>
+
+    @GET("posts")
+    fun getUpdatedPost(
+        @Query("page") page : Int,
+        @Query("size") size : Int,
+    ) : Call<GetPostsResponse>
+
+    @POST("user/{id}/postPhoto")
+    @Multipart
+    fun editPhoto(
+        @Header("Authorization") authorization: String,
+        @Part file: MultipartBody.Part,
+        @Path("id") id: String
+    ) : Call<DefaultResponse>
+
 }

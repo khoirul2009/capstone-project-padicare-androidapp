@@ -7,13 +7,13 @@ import com.padicare.model.PostItem
 
 class PostRepository(private val apiServices: ApiServices) {
 
-    fun getPosts(): LiveData<PagingData<PostItem>> {
+    fun getPosts(search: String? = ""): LiveData<PagingData<PostItem>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 5
             ),
             pagingSourceFactory = {
-                PostPagingSource(apiServices)
+                PostPagingSource(apiServices, search = search)
             }
 
         ).liveData
