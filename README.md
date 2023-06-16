@@ -24,7 +24,7 @@
 - Link : https://github.com/khoirul2009/api-padicare
 
 ## APK Package 
-- Link : https://drive.google.com/file/d/1k3XvCkZlJTaGb-wOaZ3rYTQr4x1ToobY/view?usp=drive_link
+- Link : https://drive.google.com/drive/folders/1BUVarrZjVCA54iv4bHgHLhRgW0553Vvz?usp=sharing
  
 
 
